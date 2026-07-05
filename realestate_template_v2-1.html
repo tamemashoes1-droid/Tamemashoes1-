@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مسكن | عقارك يبدأ من هنا</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Changa:wght@500;600;700;800&family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAF7F1;
+    --ink:#1E2420;
+    --ink-soft:#4A5148;
+    --green:#1F3D2E;
+    --green-bright:#2F5943;
+    --coral:#E2624B;
+    --coral-soft:#F3E3DE;
+    --card:#FFFFFF;
+    --line:#E6DFD1;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Cairo',sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    overflow-x:hidden;
+  }
+  .display{font-family:'Changa',sans-serif;}
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+  ::selection{background:var(--coral);color:#fff;}
+
+  /* ===== HEADER ===== */
+  header{
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
+    position:sticky;top:0;z-index:100;
+  }
+  .nav-wrap{
+    max-width:1220px;margin:0 auto;
+    padding:20px 28px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand-mark{
+    width:40px;height:40px;border-radius:10px;
+    background:var(--green);
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-family:'Changa',sans-serif;font-weight:700;font-size:19px;
+  }
+  .brand-text{font-family:'Changa',sans-serif;font-size:23px;font-weight:700;color:var(--ink);}
+  .brand-text span{color:var(--coral);}
+  nav.links{display:flex;gap:32px;}
+  nav.links a{font-size:14.5px;font-weight:600;color:var(--ink-soft);transition:color .2s;}
+  nav.links a:hover{color:var(--green);}
+  .nav-cta{
+    background:var(--ink);color:#fff;
+    padding:12px 26px;border-radius:100px;
+    font-weight:700;font-size:14px;
+  }
+
+  /* ===== HERO — asymmetric ===== */
+  .hero{
+    max-width:1220px;margin:0 auto;
+    padding:64px 28px 40px;
+    display:grid;grid-template-columns:1.1fr 0.9fr;
+    gap:50px;align-items:center;
+  }
+  .hero-eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--coral-soft);color:var(--coral);
+    font-size:13px;font-weight:700;padding:7px 16px;border-radius:100px;
+    margin-bottom:24px;
+  }
+  .hero h1{
+    font-family:'Changa',sans-serif;
+    font-size:clamp(38px,5vw,60px);
+    font-weight:800;
+    line-height:1.15;
+    color:var(--ink);
+    margin-bottom:22px;
+  }
+  .hero h1 .accent{color:var(--green);}
+  .hero-sub{
+    font-size:16.5px;line-height:1.9;color:var(--ink-soft);
+    max-width:460px;margin-bottom:32px;
+  }
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:15px 30px;border-radius:100px;
+    font-weight:700;font-size:14.5px;
+    transition:transform .2s, box-shadow .2s;
+  }
+  .btn-primary{background:var(--green);color:#fff;}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 26px -10px rgba(31,61,46,0.4);}
+  .btn-link{color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:4px;}
+
+  .hero-stats-inline{
+    display:flex;gap:28px;margin-top:36px;
+    padding-top:28px;border-top:1px solid var(--line);
+  }
+  .hero-stats-inline .hs{}
+  .hero-stats-inline .hs .n{font-family:'Changa',sans-serif;font-size:26px;font-weight:800;color:var(--green);}
+  .hero-stats-inline .hs .t{font-size:12px;color:var(--ink-soft);margin-top:2px;}
+
+  .hero-visual{position:relative;}
+  .hero-visual-main{
+    aspect-ratio:1/1.05;
+    border-radius:24px;
+    background:linear-gradient(155deg,#33513F,#1F3D2E 60%,#152A1F);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-visual-main::before{
+    content:"";position:absolute;inset:0;
+    background-image:repeating-linear-gradient(120deg, rgba(255,255,255,0.04) 0 2px, transparent 2px 26px);
+  }
+  .float-card{
+    position:absolute;
+    background:#fff;
+    border-radius:14px;
+    padding:16px 18px;
+    box-shadow:0 20px 40px -14px rgba(30,36,32,0.25);
+    display:flex;align-items:center;gap:12px;
+  }
+  .float-card.c1{top:24px;right:-18px;}
+  .float-card.c2{bottom:24px;left:-18px;}
+  .float-card .ic{
+    width:38px;height:38px;border-radius:10px;
+    background:var(--coral-soft);color:var(--coral);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .float-card .n{font-family:'Changa',sans-serif;font-size:18px;font-weight:800;color:var(--ink);}
+  .float-card .t{font-size:11px;color:var(--ink-soft);}
+
+  /* ===== LOGOS / TRUST STRIP ===== */
+  .trust-strip{
+    max-width:1220px;margin:0 auto;padding:30px 28px 70px;
+    display:flex;align-items:center;gap:40px;
+    color:var(--ink-soft);font-size:13px;font-weight:600;
+    flex-wrap:wrap;
+  }
+  .trust-strip .lbl{color:#A69C8A;flex-shrink:0;}
+
+  /* ===== SECTION SHELL ===== */
+  .section{max-width:1220px;margin:0 auto;padding:80px 28px;}
+  .sec-top{
+    display:flex;align-items:flex-end;justify-content:space-between;
+    margin-bottom:44px;flex-wrap:wrap;gap:16px;
+  }
+  .sec-top h2{font-family:'Changa',sans-serif;font-size:clamp(28px,3.4vw,38px);font-weight:800;color:var(--ink);}
+  .sec-top p{color:var(--ink-soft);font-size:14.5px;margin-top:8px;}
+  .see-all{
+    font-size:14px;font-weight:700;color:var(--green);
+    display:flex;align-items:center;gap:6px;flex-shrink:0;
+  }
+
+  /* ===== NEIGHBORHOODS (circles) ===== */
+  .hood-scroll{display:flex;gap:26px;overflow-x:auto;padding-bottom:10px;}
+  .hood-item{flex:0 0 auto;text-align:center;width:130px;}
+  .hood-circ{
+    width:120px;height:120px;border-radius:50%;
+    background:linear-gradient(150deg,#E9E1CE,#DACFB2);
+    margin:0 auto 14px;
+    display:flex;align-items:center;justify-content:center;
+    color:var(--green);
+    border:3px solid #fff;
+    box-shadow:0 10px 24px -10px rgba(30,36,32,0.2);
+  }
+  .hood-item h4{font-size:13.5px;font-weight:700;color:var(--ink);}
+  .hood-item span{font-size:11px;color:var(--ink-soft);}
+
+  /* ===== PROPERTY LIST — horizontal cards ===== */
+  .prop-list{display:flex;flex-direction:column;gap:18px;}
+  .prop-row{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:18px;
+    display:grid;
+    grid-template-columns:220px 1fr auto;
+    gap:24px;
+    align-items:center;
+    padding:14px;
+    transition:box-shadow .25s, transform .25s;
+  }
+  .prop-row:hover{box-shadow:0 20px 40px -20px rgba(30,36,32,0.2);transform:translateY(-2px);}
+  .prop-row-thumb{
+    aspect-ratio:4/3;border-radius:12px;
+    background:linear-gradient(150deg,#33513F,#1F3D2E);
+    display:flex;align-items:center;justify-content:center;
+    color:rgba(255,255,255,0.35);
+  }
+  .prop-row-mid{padding:6px 0;}
+  .prop-row-loc{font-size:12px;color:var(--ink-soft);margin-bottom:6px;display:flex;align-items:center;gap:5px;}
+  .prop-row-name{font-family:'Changa',sans-serif;font-size:19px;font-weight:700;color:var(--ink);margin-bottom:12px;}
+  .prop-row-specs{display:flex;gap:18px;}
+  .prop-row-spec{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--ink-soft);}
+  .prop-row-spec svg{width:15px;height:15px;color:var(--green);}
+  .prop-row-price{text-align:left;padding:0 18px;}
+  .prop-row-price .p{font-family:'Changa',sans-serif;font-size:22px;font-weight:800;color:var(--green);}
+  .prop-row-price .badge{
+    display:inline-block;margin-top:8px;
+    background:var(--coral-soft);color:var(--coral);
+    font-size:11px;font-weight:700;padding:4px 12px;border-radius:100px;
+  }
+
+  /* ===== PROCESS STEPS ===== */
+  .process{background:var(--green);color:#fff;border-radius:28px;padding:64px 48px;}
+  .process .sec-top h2{color:#fff;}
+  .process .sec-top p{color:#C9D6CC;}
+  .steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;position:relative;}
+  .step{text-align:center;padding:0 12px;position:relative;}
+  .step .n{
+    width:52px;height:52px;border-radius:50%;
+    background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,255,255,0.3);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Changa',sans-serif;font-weight:800;font-size:20px;
+    margin:0 auto 18px;
+  }
+  .step h4{font-size:15px;font-weight:700;margin-bottom:8px;}
+  .step p{font-size:13px;color:#C9D6CC;line-height:1.8;}
+
+  /* ===== CTA ===== */
+  .cta-split{
+    display:grid;grid-template-columns:1fr 1fr;
+    background:var(--ink);color:#fff;
+    border-radius:26px;overflow:hidden;
+  }
+  .cta-split-text{padding:56px 48px;}
+  .cta-split-text h3{font-family:'Changa',sans-serif;font-size:clamp(24px,3vw,32px);font-weight:800;margin-bottom:14px;}
+  .cta-split-text p{font-size:14.5px;color:#B8BDB4;line-height:1.9;margin-bottom:28px;max-width:380px;}
+  .cta-split-visual{
+    background:linear-gradient(150deg,var(--coral),#B8482F);
+    display:flex;align-items:center;justify-content:center;
+    padding:40px;
+  }
+  .cta-split-visual .n{font-family:'Changa',sans-serif;font-size:70px;font-weight:800;color:#fff;line-height:1;}
+  .cta-split-visual .t{font-size:13px;color:#FCE0D8;margin-top:8px;text-align:center;}
+
+  /* ===== FOOTER ===== */
+  footer{background:#141814;color:#8C9188;padding:60px 28px 26px;}
+  .foot-wrap{
+    max-width:1220px;margin:0 auto;
+    display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:44px;
+  }
+  .foot-brand .brand-text{color:#fff;display:block;margin-bottom:14px;}
+  .foot-brand p{font-size:13.5px;line-height:1.9;max-width:270px;}
+  .foot-col h4{color:#fff;font-family:'Changa',sans-serif;font-size:15px;font-weight:700;margin-bottom:16px;}
+  .foot-col a{display:block;font-size:13.5px;margin-bottom:11px;color:#8C9188;}
+  .foot-col a:hover{color:var(--coral);}
+  .foot-bottom{
+    max-width:1220px;margin:46px auto 0;
+    border-top:1px solid rgba(255,255,255,0.08);
+    padding-top:20px;text-align:center;font-size:12px;
+  }
+
+  .wa-float{
+    position:fixed;bottom:26px;left:26px;
+    width:56px;height:56px;background:#25D366;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    z-index:99;box-shadow:0 10px 24px rgba(0,0,0,0.25);
+    transition:transform .25s;
+  }
+  .wa-float:hover{transform:scale(1.08);}
+
+  @media (max-width:980px){
+    nav.links{display:none;}
+    .hero{grid-template-columns:1fr;}
+    .hero-visual{order:-1;max-width:340px;margin:0 auto;}
+    .float-card{display:none;}
+    .prop-row{grid-template-columns:1fr;text-align:center;}
+    .prop-row-price{text-align:center;padding-top:8px;}
+    .steps-grid{grid-template-columns:repeat(2,1fr);gap:32px;}
+    .cta-split{grid-template-columns:1fr;}
+    .cta-split-visual{padding:30px;}
+    .foot-wrap{grid-template-columns:1fr 1fr;}
+    .process{padding:44px 24px;border-radius:20px;}
+  }
+  @media (max-width:640px){
+    .hero-stats-inline{flex-wrap:wrap;gap:20px;}
+    .foot-wrap{grid-template-columns:1fr;}
+    .section{padding:56px 20px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-wrap">
+    <div class="brand">
+      <div class="brand-mark">م</div>
+      <div class="brand-text">مسكن<span>.</span></div>
+    </div>
+    <nav class="links">
+      <a href="#properties">العقارات</a>
+      <a href="#neighborhoods">المناطق</a>
+      <a href="#process">إزاي بنشتغل</a>
+      <a href="#contact">تواصل معنا</a>
+    </nav>
+    <a href="#contact" class="nav-cta">احجز معاينة</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div>
+    <div class="hero-eyebrow">🏡 أكثر من 300 وحدة متاحة الآن</div>
+    <h1>لقيت بيتك؟<br>ولا لسه <span class="accent">بتدور</span>؟</h1>
+    <p class="hero-sub">
+      نساعدك تلاقي الوحدة المناسبة لميزانيتك ولاحتياجك الفعلي، مش بس اللي معروض،
+      من أول المعاينة لحد التسليم.
+    </p>
+    <div class="hero-cta">
+      <a href="#properties" class="btn btn-primary">شوف العقارات المتاحة</a>
+      <a href="#process" class="btn-link">إزاي بنشتغل؟</a>
+    </div>
+    <div class="hero-stats-inline">
+      <div class="hs"><div class="n">+300</div><div class="t">وحدة متاحة</div></div>
+      <div class="hs"><div class="n">+40</div><div class="t">مشروع عقاري</div></div>
+      <div class="hs"><div class="n">98%</div><div class="t">عملاء راضين</div></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-visual-main"></div>
+    <div class="float-card c1">
+      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg></div>
+      <div><div class="n">180 م²</div><div class="t">متوسط المساحة</div></div>
+    </div>
+    <div class="float-card c2">
+      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12l5 5L21 6"/></svg></div>
+      <div><div class="n">فوري</div><div class="t">تسليم متاح</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="trust-strip">
+  <span class="lbl">بنتعامل بثقة مع كبرى المطورين في:</span>
+  <span>التجمع الخامس</span> · <span>الشيخ زايد</span> · <span>العاصمة الإدارية</span> · <span>الساحل الشمالي</span> · <span>مدينتي</span>
+</div>
+
+<section class="section" id="neighborhoods">
+  <div class="sec-top">
+    <div>
+      <h2>ابحث حسب المنطقة</h2>
+      <p>اختار المنطقة اللي حابب تعيش فيها</p>
+    </div>
+  </div>
+  <div class="hood-scroll">
+    <div class="hood-item">
+      <div class="hood-circ"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 21V9l9-6 9 6v12M9 21v-8h6v8"/></svg></div>
+      <h4>التجمع الخامس</h4>
+      <span>85 وحدة</span>
+    </div>
+    <div class="hood-item">
+      <div class="hood-circ"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 21V10l8-6 8 6v11"/></svg></div>
+      <h4>الشيخ زايد</h4>
+      <span>64 وحدة</span>
+    </div>
+    <div class="hood-item">
+      <div class="hood-circ"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="4" y="3" width="16" height="18" rx="1"/></svg></div>
+      <h4>العاصمة الإدارية</h4>
+      <span>110 وحدة</span>
+    </div>
+    <div class="hood-item">
+      <div class="hood-circ"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M2 12h20M12 2c3 3 3 17 0 20"/></svg></div>
+      <h4>الساحل الشمالي</h4>
+      <span>38 وحدة</span>
+    </div>
+    <div class="hood-item">
+      <div class="hood-circ"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 21h18M5 21V9l7-5 7 5v12"/></svg></div>
+      <h4>مدينتي</h4>
+      <span>29 وحدة</span>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="properties">
+  <div class="sec-top">
+    <div>
+      <h2>أحدث العقارات</h2>
+      <p>وحدات مختارة تناسب احتياجات مختلفة</p>
+    </div>
+    <a href="#" class="see-all">عرض الكل →</a>
+  </div>
+  <div class="prop-list">
+    <div class="prop-row">
+      <div class="prop-row-thumb"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 21V9l9-6 9 6v12M9 21v-8h6v8"/></svg></div>
+      <div class="prop-row-mid">
+        <div class="prop-row-loc">📍 التجمع الخامس، القاهرة الجديدة</div>
+        <div class="prop-row-name">شقة مودرن بحديقة خاصة</div>
+        <div class="prop-row-specs">
+          <div class="prop-row-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="18" height="13" rx="1"/></svg>180 م²</div>
+          <div class="prop-row-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M5 21V9l7-5 7 5v12"/></svg>3 غرف</div>
+          <div class="prop-row-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/></svg>2 حمام</div>
+        </div>
+      </div>
+      <div class="prop-row-price">
+        <div class="p">4.2M ج.م</div>
+        <div class="badge">جديد</div>
+      </div>
+    </div>
+    <div class="prop-row">
+      <div class="prop-row-thumb"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 21V10l8-6 8 6v11M4 21h16M9 21v-7h6v7"/></svg></div>
+      <div class="prop-row-mid">
+        <div class="prop-row-loc">📍 الشيخ زايد، الجيزة</div>
+        <div class="prop-row-name">فيلا مستقلة تشطيب سوبر لوكس</div>
+        <div class="prop-row-specs">
+          <div class="prop-row-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="18" height="13" rx="1"/></svg>420 م²</div>
+          <div class="prop-row-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M5 21V9l7-5 7 5v12"/></svg>5 غرف</div>
+          <div class="prop-row-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/></svg>4 حمام</div>
+        </div>
+      </div>
+      <div class="prop-row-price">
+        <div class="p">9.8M ج.م</div>
+        <div class="badge">فرصة استثمارية</div>
+      </div>
+    </div>
+    <div class="prop-row">
+      <div class="prop-row-thumb"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>
+      <div class="prop-row-mid">
+        <div class="prop-row-loc">📍 العاصمة الإدارية الجديدة</div>
+        <div class="prop-row-name">شقة استلام فوري بإطلالة مباشرة</div>
+        <div class="prop-row-specs">
+          <div class="prop-row-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="18" height="13" rx="1"/></svg>140 م²</div>
+          <div class="prop-row-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M5 21V9l7-5 7 5v12"/></svg>2 غرفة</div>
+          <div class="prop-row-spec"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/></svg>2 حمام</div>
+        </div>
+      </div>
+      <div class="prop-row-price">
+        <div class="p">2.65M ج.م</div>
+        <div class="badge">تسليم فوري</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="process">
+  <div class="process">
+    <div class="sec-top">
+      <div>
+        <h2>إزاي بنشتغل معاك</h2>
+        <p>4 خطوات بسيطة من أول ما تكلمنا لحد ما تستلم مفتاح بيتك</p>
+      </div>
+    </div>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="n">01</div>
+        <h4>نفهم احتياجك</h4>
+        <p>نتكلم معاك نعرف ميزانيتك والمنطقة اللي حابب تعيش فيها.</p>
+      </div>
+      <div class="step">
+        <div class="n">02</div>
+        <h4>نرشحلك وحدات</h4>
+        <p>نبعتلك اختيارات فعلية تناسبك، مش قائمة عشوائية.</p>
+      </div>
+      <div class="step">
+        <div class="n">03</div>
+        <h4>معاينة ومتابعة</h4>
+        <p>نرتب المعاينة ونكون معاك في كل خطوة من التعاقد.</p>
+      </div>
+      <div class="step">
+        <div class="n">04</div>
+        <h4>استلام مفتاحك</h4>
+        <p>نتابع معاك حتى تاريخ الاستلام الفعلي للوحدة.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="cta-split">
+    <div class="cta-split-text">
+      <h3>عندك عقار وعايز تبيعه بسرعة؟</h3>
+      <p>اعرض وحدتك معانا ووصلها لقاعدة عملاء جاهزين للشراء فعليًا.</p>
+      <a href="#contact" class="btn btn-primary" style="background:var(--coral);">اعرض عقارك الآن</a>
+    </div>
+    <div class="cta-split-visual">
+      <div style="text-align:center;">
+        <div class="n">48h</div>
+        <div class="t">متوسط وقت الرد على أي استفسار</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="foot-wrap">
+    <div class="foot-brand">
+      <div class="brand-text">مسكن<span style="color:var(--coral)">.</span></div>
+      <p>منصتك عشان تلاقي بيتك المناسب، من الاختيار وحتى الاستلام.</p>
+    </div>
+    <div class="foot-col">
+      <h4>روابط سريعة</h4>
+      <a href="#properties">العقارات</a>
+      <a href="#neighborhoods">المناطق</a>
+      <a href="#process">إزاي بنشتغل</a>
+    </div>
+    <div class="foot-col">
+      <h4>المناطق</h4>
+      <a href="#">التجمع الخامس</a>
+      <a href="#">الشيخ زايد</a>
+      <a href="#">العاصمة الإدارية</a>
+    </div>
+    <div class="foot-col">
+      <h4>تواصل معنا</h4>
+      <a href="tel:+201000000000">01000000000</a>
+      <a href="mailto:info@example.com">info@example.com</a>
+      <a href="#">واتساب</a>
+    </div>
+  </div>
+  <div class="foot-bottom">© 2026 مسكن. جميع الحقوق محفوظة.</div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/201000000000" target="_blank" aria-label="تواصل عبر واتساب">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.81L2 22l5.42-1.36a9.9 9.9 0 004.62 1.13h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.4 1.3-1.94 1.38-.5.08-1.13.11-1.82-.11-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.8-4.17-4.94-4.36-.14-.19-1.18-1.57-1.18-3 0-1.43.75-2.13 1.02-2.42.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.59.83 2.02.9 2.17.07.15.12.32.02.51-.1.19-.15.31-.3.48-.15.17-.31.38-.45.51-.15.14-.3.3-.13.59.17.29.76 1.25 1.63 2.03 1.12 1 2.07 1.31 2.36 1.46.29.15.46.13.63-.08.17-.21.72-.84.91-1.13.19-.29.39-.24.65-.14.27.1 1.7.8 1.99.95.29.14.49.22.56.34.07.13.07.73-.17 1.41z"/></svg>
+</a>
+
+</body>
+</html>
